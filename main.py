@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from songs import songs
 
 # Billboard.com
 URL = "https://www.billboard.com/charts/hot-100/"
@@ -40,7 +39,7 @@ def make_data(artists: list[str], titles: list[str]) -> list[dict]:
     """Combines artists with songs into a list of dictionaries."""
     song_list = []
     i = 0
-    for x in range(len(songs)):
+    for x in range(len(titles)):
         song_list.append(dict(artist=artists[i], song=titles[i]))
         i += 1
     return song_list
